@@ -2,7 +2,10 @@ package com.pm.developextest.main.settings
 
 import android.databinding.Bindable
 import android.text.TextUtils
+import android.view.KeyEvent
+import android.view.inputmethod.EditorInfo
 import android.webkit.URLUtil
+import android.widget.TextView
 import com.pm.developextest.BR
 import com.pm.developextest.R
 import com.pm.developextest.core.AbsViewModel
@@ -89,12 +92,12 @@ class MainSettingsViewModel(private val explorer: UrlExplorer) : AbsViewModel() 
             searchTextError = R.string.err_cant_be_empty
         }
 
-        if(TextUtils.isEmpty(maxThreadNumber) || maxThreadNumber.toInt() == 0) {
-            maxThreadNumberError = R.string.err_cant_be_zero_or_null
+        if(TextUtils.isEmpty(maxThreadNumber) || maxThreadNumber.toInt() < 2) {
+            maxThreadNumberError = R.string.err_cant_be_empty_or_zero_one
         }
 
         if(TextUtils.isEmpty(maxUrlNumber) || maxUrlNumber.toInt() == 0) {
-            maxUrlNumberError = R.string.err_cant_be_zero_or_null
+            maxUrlNumberError = R.string.err_cant_be_empty_or_zero
         }
 
         val noError = (urlError == null

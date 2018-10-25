@@ -115,7 +115,7 @@ private fun String.findOccurrence(text: String): Int {
     var counter = 0
 
     do {
-        pos = indexOf(text, pos, false)
+        pos = indexOf(text, pos, true)
         if (pos >= 0) {
             counter++
             pos++
