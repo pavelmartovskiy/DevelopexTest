@@ -66,6 +66,10 @@ class MainViewModel(private val explorer: UrlExplorer) : AbsViewModel() {
         explorer.stop()
     }
 
+    fun clear() {
+        explorer.clear()
+    }
+
     override fun onCleared() {
         super.onCleared()
         explorer.urls.removeObserver(::setTotalProcessed)

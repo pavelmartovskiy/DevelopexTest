@@ -21,16 +21,16 @@
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
-                android:id="@+id/button"
+                android:id="@+id/btStart"
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp"
-                app:layout_constraintHorizontal_bias="0.5"
                 android:background="@color/colorPrimary"
                 android:textColor="@android:color/white"
                 android:onClickListener="@{() -> model.start()}"
-                app:layout_constraintEnd_toStartOf="@+id/button2"/>
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintEnd_toStartOf="@+id/bStop"/>
 
         <Button
                 android:text="@string/stop"
@@ -38,8 +38,8 @@
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
-                android:id="@+id/button2"
-                app:layout_constraintStart_toEndOf="@+id/button"
+                android:id="@+id/bStop"
+                app:layout_constraintStart_toEndOf="@+id/btStart"
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +47,27 @@
                 android:layout_marginEnd="8dp"
                 android:background="@color/colorPrimary"
                 android:textColor="@android:color/white"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintEnd_toStartOf="@+id/bClear"/>
+
+        <Button
+                android:text="@string/clear"
+                android:visibleWhenIdle="@{model.engineState}"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:id="@+id/bClear"
+                app:layout_constraintStart_toEndOf="@+id/bStop"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:onClickListener="@{() -> model.clear()}"
+                android:layout_marginEnd="8dp"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                android:layout_marginStart="8dp"/>
 
         <TextView
                 android:text="@{model.info}"

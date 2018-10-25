@@ -1,13 +1,10 @@
 package com.pm.developextest.main.settings
 
 import android.app.Dialog
-import android.databinding.DataBindingUtil
 import android.databinding.DataBindingUtil.*
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
-import android.view.LayoutInflater
 import android.view.LayoutInflater.*
-import android.view.View
 import com.pm.developextest.R
 import com.pm.developextest.databinding.FrMainSettingsBinding
 import dagger.android.support.DaggerDialogFragment
@@ -21,7 +18,8 @@ class MainSettingsDialogFragment : DaggerDialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         val dataBinding = inflate<FrMainSettingsBinding>(
-            from(requireContext()), R.layout.fr_main_settings, null, false)
+            from(requireContext()), R.layout.fr_main_settings, null, false
+        )
 
         model.init()
 
@@ -30,17 +28,16 @@ class MainSettingsDialogFragment : DaggerDialogFragment() {
         val dialog = AlertDialog.Builder(requireContext())
             .setTitle(R.string.settings)
             .setView(dataBinding.root)
-            .setNegativeButton(android.R.string.cancel)
-            .setPositiveButton(android.R.string.ok)
+            .setNegativeButton(android.R.string.cancel) { _, _ -> }
+            .setPositiveButton(android.R.string.ok) { _, _ -> }
             .create()
 
 
-        dialog.setOnShowListener {
-
+        dialog.setOnShowListener { _ ->
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-               if (model.ok()) {
-                   dismiss()
-               }
+                if (model.ok()) {
+                    dismiss()
+                }
             }
 
         }

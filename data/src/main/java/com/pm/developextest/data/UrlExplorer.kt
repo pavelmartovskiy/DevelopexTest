@@ -85,6 +85,21 @@ class UrlExplorer {
 
     }
 
+    fun clear() {
+        val current = engine
+
+        if (current is IdleUrlExplorerEngine) {
+            engine = IdleUrlExplorerEngine(
+                listOf(),
+                listOf(WaitingUrlInfo(current.startUrl().url)),
+                engine.maxUrls,
+                engine.maxThreads,
+                engine.searchText
+            )
+            urls.postValue(engine.processedUrls.plus(engine.waitingUrls))
+        }
+    }
+
 }
 
 enum class UrlExplorerEngineState {

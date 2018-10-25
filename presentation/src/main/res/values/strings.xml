@@ -6,4 +6,5 @@
     <string name="err_cant_be_zero_or_null">Cant\'t be empty or 0</string>
     <string name="start">Start</string>
     <string name="stop">Stop</string>
+    <string name="clear">Clear</string>
 </resources>
