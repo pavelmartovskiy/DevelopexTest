@@ -12,7 +12,7 @@ class UrlExplorer {
     private var disposable: Disposable? = null
     private var engine: UrlExplorerEngine = IdleUrlExplorerEngine(
         emptyList(),
-        listOf(WaitingUrlInfo("https://uk.wikipedia.org")),
+        listOf(WaitingUrlInfo("https://en.wikipedia.org")),
         1000,
         4,
         "hello"
